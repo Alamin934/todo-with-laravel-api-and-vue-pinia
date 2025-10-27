@@ -3,8 +3,15 @@ import TodoFooter from './components/TodoFooter.vue';
 import TodoForm from './components/TodoForm.vue';
 import TodoHeader from './components/TodoHeader.vue';
 import TodoLists from './components/TodoLists.vue';
+import axios from 'axios';
+import { useTodoStore } from './stores/todoStore';
 
+axios.defaults.withCredentials = true;
+axios.defaults.withXSRFToken = true;
+axios.defaults.baseURL = "https://laravel-pinia-api.test";
 
+const store = useTodoStore();
+store.getTodos();
 </script>
 
 <template>

@@ -7,7 +7,6 @@ const store = useTodoStore();
 
 function addTodo() {
    store.addTodo({
-      id: store.todoLists.length + 1,
       title: todoTitle.value,
       completed: false,
    });
@@ -23,4 +22,7 @@ function addTodo() {
          Button
       </button>
    </form>
+   <div v-if="store.errors.title">
+      <p class="text-red-400">{{ store.errors.title[0] }}</p>
+   </div>
 </template>
